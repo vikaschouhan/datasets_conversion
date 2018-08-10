@@ -45,13 +45,13 @@ def gen_json(in_file, out_file, json_file=None):
         else:
             color_ctr = color_ctr + 1
         # endif
-        print(color_ctr)
+        #print(color_ctr)
     # endif
     
     with open(in_file, 'r') as f_read:
         for line_t in f_read:
             ascii_str = unidecode.unidecode(line_t)
-            match  = re.search('^\s+\d+\.\s+([\w\s\d\'\.]+)', ascii_str)
+            match  = re.search('^\s+\d+\.\s+([\w\s\d\-\(\)\'\.\/]+)', ascii_str)
             if match:
                 #print(match.groups()[0].rstrip())
                 if color_ctr == max_ctr:
