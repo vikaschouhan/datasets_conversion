@@ -30,12 +30,12 @@ col_map = {
         '2019' : col_map_isic2019,
     }
 
-def process_csv(csv_file, isic_year):
-    assert isic_year in ['2018', '2019'], 'invalid isic year.'
-    col_map_t = col_map[isic_year]
+def process_csv(csv_file, isic_year=None):
+    #assert isic_year in ['2018', '2019'], 'invalid isic year.'
+    #col_map_t = col_map[isic_year]
 
     dframe = pd.read_csv(csv_file)
-    dframe = dframe.rename(columns=col_map_t)
+    #dframe = dframe.rename(columns=col_map_t)
     dframe = dframe.set_index('image')
     categ  = dframe.idxmax(axis=1)
     lenc   = preprocessing.LabelEncoder()
